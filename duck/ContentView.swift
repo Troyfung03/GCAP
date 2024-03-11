@@ -21,9 +21,7 @@ struct ContentView: View {
                 Image(systemName:"list.bullet.rectangle.fill")
                 Text("Category")
             }
-                
             }
-
         }
     }
 
