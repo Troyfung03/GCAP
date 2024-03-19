@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E2FE7BC2BA952B100348DB5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2FE7BB2BA952B100348DB5 /* HomeView.swift */; };
+		0E2FE7BE2BA9572F00348DB5 /* GroupedExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2FE7BD2BA9572F00348DB5 /* GroupedExpense.swift */; };
 		0EAF98F72B98B0DA00FBFC8E /* duckApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAF98F62B98B0DA00FBFC8E /* duckApp.swift */; };
 		0EAF98F92B98B0DA00FBFC8E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAF98F82B98B0DA00FBFC8E /* ContentView.swift */; };
 		0EAF98FB2B98B0DA00FBFC8E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAF98FA2B98B0DA00FBFC8E /* Item.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E2FE7BB2BA952B100348DB5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		0E2FE7BD2BA9572F00348DB5 /* GroupedExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedExpense.swift; sourceTree = "<group>"; };
 		0EAF98F32B98B0DA00FBFC8E /* duck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = duck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EAF98F62B98B0DA00FBFC8E /* duckApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = duckApp.swift; sourceTree = "<group>"; };
 		0EAF98F82B98B0DA00FBFC8E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 			children = (
 				0EAF99282B98C98900FBFC8E /* Expense.swift */,
 				0EAF992C2B98CABF00FBFC8E /* Category.swift */,
+				0E2FE7BD2BA9572F00348DB5 /* GroupedExpense.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -156,6 +161,7 @@
 			children = (
 				0EAF992E2B98CC1200FBFC8E /* ExpenseView.swift */,
 				0EAF99302B98CC2F00FBFC8E /* CategoryView.swift */,
+				0E2FE7BB2BA952B100348DB5 /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -295,6 +301,8 @@
 				0EAF992D2B98CAC000FBFC8E /* Category.swift in Sources */,
 				0EAF98F92B98B0DA00FBFC8E /* ContentView.swift in Sources */,
 				0EAF98FB2B98B0DA00FBFC8E /* Item.swift in Sources */,
+				0E2FE7BC2BA952B100348DB5 /* HomeView.swift in Sources */,
+				0E2FE7BE2BA9572F00348DB5 /* GroupedExpense.swift in Sources */,
 				0EAF98F72B98B0DA00FBFC8E /* duckApp.swift in Sources */,
 				0EAF992F2B98CC1300FBFC8E /* ExpenseView.swift in Sources */,
 			);
