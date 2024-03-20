@@ -47,38 +47,39 @@ struct ExpenseView: View {
             .sheet(isPresented: $addExpense){
                 AddExpenseView()
             }
-
-
-            func createGroupedExpenses(_ expenses:[Expense]){
-                Task.detached(priority: .high){
-                    let groupedDict = Dictionary(grouping: expenses){
-                        expense in
-                        let dateComponents = Calendar.current.dateComponents([.day,.month, .year], from: expense.date)
+        }}
+        
+        
+        func createGroupedExpenses(_ expenses:[Expense]){
+            Task.detached(priority: .high){
+                let groupedDict = Dictionary(grouping: expenses){
+                    expense in
+                    let dateComponents = Calendar.current.dateComponents([.day,.month, .year], from: expense.date)
                     return dateComponents
-                    }
                 }
-
+                
+                
                 let sortedDict = groupedDict.sorted{
-              let calendar = Calendar.current
-              let date1 = calendar.date(from: $0.key)?? .init ()
-let date2 = calendar.date(from: $1.key)?? .init ()
-return calendar.compare(date1, to: date2, toGranularity: .day) ==.orderedDescending
+                    let calendar = Calendar.current
+                    let date1 = calendar.date(from: $0.key) ?? .init()
+                    let date2 = calendar.date(from: $1.key) ?? .init()
+                    return calendar.compare(date1, to: date2, toGranularity: .day) == .orderedDescending
                 }
+                
+                
                 await MainActor.run{
-                    groupedExpenses = sortedDict.compactMap{{
-                       dict in
+                    groupedExpenses = sortedDict.compactMap({
+                        dict in
                         let date = Calendar.current.date(from: dict.key) ?? .init()
-
+                        
                         return .init(date:date, expenses: dict.value)
-                    }}
+                    })
+                    
+                                                            }
                 }
-            }
-
-
-            
-        }
-    }}
-
+    }
+    }
+                                                            
 #Preview {
   ExpenseView()
 }
