@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SwiftData
+
 struct AddExpenseView: View {
 
     @Environment(\.dismiss) private var dismiss
@@ -77,4 +77,8 @@ Picker("",selection: $category){
         modelContext.save()
         dismiss()
     }
+}
+
+#Preview {
+    AddExpenseView()
 }
