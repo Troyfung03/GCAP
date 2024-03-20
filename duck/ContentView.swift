@@ -16,22 +16,18 @@ struct ContentView: View {
             HomeView().tag("Home").tabItem {
                 Image(systemName: "house")
             }
-            CategoryView().tag("Category").tabItem{
-                    Image(systemName:"list.bullet.rectangle.fill")
-            }
-            ExpenseView().tag("Expenses").tabItem { 
-                    Image(systemName:"dollarsign.arrow.circlepath")
-            }
-            TimesView().tag("Time Manager").tabItem {
-                    Image(systemName:"calendar")
-            }
             NewsView().tag("News").tabItem {
                     Image(systemName:"newspaper")
             }
             ChatBotView().tag("ChatBot").tabItem {
                     Image(systemName:"shared.with.you")
             }
-            
+            ExpenseView().tag("Expenses").tabItem {
+                    Image(systemName:"dollarsign.arrow.circlepath")
+            }
+            TimesView().tag("Time Manager").tabItem {
+                    Image(systemName:"calendar")
+            }
         }
     }
 }
