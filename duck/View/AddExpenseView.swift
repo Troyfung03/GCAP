@@ -1,3 +1,10 @@
+//
+//  AddExpenseView.swift
+//  duck
+//
+//  Created by troyfung on 20/3/2024.
+//
+
 import SwiftUI
 import SwiftData
 struct AddExpenseView: View {
@@ -9,7 +16,7 @@ struct AddExpenseView: View {
     @State private var subtitle: String = ""
 
     @State private var date: Date = .init()
-        @State private var amount: CGFloat = 0 
+        @State private var amount: CGFloat = 0
     @State private var category: String = ""
     @Query(animation: .snappy) private var allCategories: [Category]
     var body: some View{
