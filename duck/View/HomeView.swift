@@ -10,24 +10,19 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             VStack {
-                NavigationLink(destination: ExpenseView()) {
-                    Text("Category")
-                        .font(.title)
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
-                .tag("Category")
-                .tabItem{
-                    Image(systemName:"list.bullet.rectangle.fill")
-                    Text("Category")
-                }
+                NavigationStack{
+                    List{
+                        Text("Recent Schedules")
+                        Rectangle().frame(height: 100).padding()
+                        Text("Recent News")
+                        Rectangle().frame(height: 100).padding()
+                    }.navigationTitle("Home")
+                } .padding(.trailing)
+                
             }
         }
     }
 }
-
 #Preview {
     HomeView()
 }

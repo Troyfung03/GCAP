@@ -10,7 +10,7 @@ import SwiftData
 
 struct ContentView: View {
     //View Properties
-    @State private var currentTab: String = "Expenses"
+    @State private var currentTab: String = "Home"
     var body: some View{
         TabView(selection: $currentTab){
             HomeView().tag("Home").tabItem {
