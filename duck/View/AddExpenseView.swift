@@ -47,7 +47,7 @@ struct AddExpenseView: View {
                     }
                 }
             }
-            .navigationTitle("Add Expense123")
+            .navigationTitle("Add Expense")
             .toolbar {
                 ToolbarItem(placement: .topBarLeading){
                     Button ("Cancel"){

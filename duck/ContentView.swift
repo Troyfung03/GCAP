@@ -13,9 +13,6 @@ struct ContentView: View {
     @State private var currentTab: String = "Home"
     var body: some View{
         TabView(selection: $currentTab){
-            HomeView().tag("Home").tabItem {
-                Image(systemName: "house")
-            }
             NewsView().tag("News").tabItem {
                     Image(systemName:"newspaper")
             }
@@ -27,7 +24,11 @@ struct ContentView: View {
             }
             TimesView().tag("Time Manager").tabItem {
                     Image(systemName:"calendar")
-            }
+            }            
+            TimesView().tag("Time Manager").tabItem {
+                Image(systemName:"calendar")
+        }
+            
         }
     }
 }

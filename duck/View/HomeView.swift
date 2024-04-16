@@ -12,7 +12,7 @@ struct HomeView: View {
             VStack {
                 NavigationStack{
                     List{
-                        Text("Recent Schedules")
+                        Text("Upcoming Schedules")
                         Rectangle().frame(height: 100).padding()
                         Text("Recent News")
                         Rectangle().frame(height: 100).padding()
