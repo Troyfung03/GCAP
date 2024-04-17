@@ -17,7 +17,7 @@ struct HomeView: View {
                         Text("Recent News")
                         Rectangle().frame(height: 100).padding()
                     }.navigationTitle("Home")
-                } .padding(.trailing)
+                }
                 
             }
         }

@@ -27,11 +27,7 @@ struct ContentView: View {
             }
             TimesView().tag("Time Manager").tabItem {
                     Image(systemName:"calendar")
-            }            
-            TimesView().tag("Time Manager").tabItem {
-                Image(systemName:"calendar")
         }
-            
         }
     }
 }

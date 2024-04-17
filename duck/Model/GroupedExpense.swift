@@ -11,5 +11,13 @@ struct GroupedExpenses: Identifiable{
     var id: UUID = .init()
     var date: Date
     var expenses: [Expense]
-}
+
+    var groupTitle: String{
+        let calendar = Calender.current
+        if calendar.isDateInToday(date){
+            return "Today"
+    }else if calendar.isDateInYesterday(date){
+        return "Yesterday"
+    }else{return data.formatted(date: .abbreviated, time: .omitted)}
+}}
 

@@ -3,7 +3,7 @@ import SwiftData
 
 struct AddExpenseView: View {
     @Environment(\.dismiss) private var dismiss
-    @Environment(\.modelContext) private var modelContext
+    @Environment(\.modelContext) private var context
     
     @State private var title: String = ""
     @State private var subtitle: String = ""
@@ -58,13 +58,18 @@ struct AddExpenseView: View {
                 
                 ToolbarItem(placement: .topBarTrailing){
                     Button("Add", action: addExpense)
+                        .disabled(isAddButtonDisabled)
                 }
             }
         }
     }
+    var isAddButtonDisabled: Bool{
+        return title.isEmpty || subtitle.isEmpty || amount == .zero}
     
     func addExpense(){
-        // Your code to add expense goes here
+        let expense = Expense(title: title, subTitle: subtitle, amount: amount, date: date, category: category)
+        context.insert(expense)
+        dismiss()
     }
     
     var formatter: NumberFormatter{
@@ -73,8 +78,8 @@ struct AddExpenseView: View {
         formatter.maximumFractionDigits=2
         return formatter
     }
+    
 }
-
 #Preview{
     AddExpenseView()
 }

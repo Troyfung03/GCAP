@@ -17,7 +17,12 @@ struct ExpenseView: View {
     @State private var groupedExpenses: [GroupedExpenses] = []
     var body: some View {
         NavigationStack{
+        
             List{
+                ForEach(groupedExpenses){ group in
+                    Section(group.groupTitle(){ expense in 
+
+                    
             }
             .navigationTitle("Expenses")
             .overlay{

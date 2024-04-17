@@ -33,7 +33,7 @@ func fetchNews(region: String, category: String) {
     var url = URL(string: base+apiKey)!
     
     if !searchTerm.isEmpty {
-        let query = "&q=\(searchTerm.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")"
+        let query = "q=\(searchTerm.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")"
         base = "https://newsapi.org/v2/everything?\(query)&sortBy=popularity"
         url = URL(string: base + apiKey)!
     }
