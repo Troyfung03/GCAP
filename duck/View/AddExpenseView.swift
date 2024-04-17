@@ -9,7 +9,7 @@ struct AddExpenseView: View {
     @State private var subtitle: String = ""
     @State private var date: Date = .init()
     @State private var amount: CGFloat = 0
-    @State private var category: String = ""
+@State private var category: Category? = nil
     @Query (animation: .snappy) private var allCategories: [Category]
     
     var body: some View{
@@ -36,12 +36,12 @@ struct AddExpenseView: View {
                     HStack{
                         Text("Category")
                         Spacer()
-                        Picker("",selection: $category){
-                            ForEach(allCategories){
-                                Text($0.categoryName)
-                                    .tag($0)
-                            }
-                        }
+Picker("", selection: $category) {
+    ForEach(allCategories) { category in
+        Text(category.categoryName)
+            .tag(category)
+    }
+}
                         .pickerStyle(.menu)
                         .labelsHidden()
                     }
@@ -66,11 +66,11 @@ struct AddExpenseView: View {
     var isAddButtonDisabled: Bool{
         return title.isEmpty || subtitle.isEmpty || amount == .zero}
     
-    func addExpense(){
-        let expense = Expense(title: title, subTitle: subtitle, amount: amount, date: date, category: category)
-        context.insert(expense)
-        dismiss()
-    }
+func addExpense() {
+    let expense = Expense(title: title, subt: subtitle, amount: amount, date: date, category: category)
+    context.insert(expense)
+    dismiss()
+}
     
     var formatter: NumberFormatter{
         let formatter = NumberFormatter()
