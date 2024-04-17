@@ -32,22 +32,28 @@ struct AddExpenseView: View {
                         .datePickerStyle(.graphical)
                         .labelsHidden()
                 }
-                if !allCategories.isEmpty{
+                if !allCategories.isEmpty
+                {
                     HStack{
                         Text("Category")
                         Spacer()
-Picker("", selection: $category) {
-    ForEach(allCategories) { category in
-        Text(category.categoryName)
-            .tag(category)
-    }
+                        Menu{
+                            ForEach(allCategories){ category in Button(category.categoryName){
+                                self.category = category
+                            }}
+
+                        }label:{
+                            if let categoryName = category?.categoryName{
+                                Text(categoryName)
+                        }else{
+         Text("None")                
+                        }
 }
-                        .pickerStyle(.menu)
-                        .labelsHidden()
                     }
                 }
             }
             .navigationTitle("Add Expense")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading){
                     Button ("Cancel"){

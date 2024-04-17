@@ -29,7 +29,7 @@ class Expense{
     var currencyString: String{
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
-        return formatter.string(for: date) ?? ""
+        return formatter.string(for: amount) ?? ""
     }
 }
 

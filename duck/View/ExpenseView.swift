@@ -14,46 +14,86 @@ struct ExpenseView: View {
     private var allExpenses: [Expense]
     @State private var addExpense: Bool = false
     @State private var groupedExpenses: [GroupedExpenses] = []
-    var body: some View {
-        NavigationStack{
-            List{
-                ForEach(groupedExpenses) { group in
-                    Section(header: Text(group.groupTitle)) {
-                        ForEach(group.expenses) { expense in
-                            ExpenseCardView(expense: expense)
+    @Environment(\.modelContext) private var context
+    @State private var showCategoryView = false
+  var body: some View {
+        NavigationStack {
+            VStack {
+                Button(action: {
+                    showCategoryView = true
+                }) {
+                    Text("Go to Category View")
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
+                .padding()
+                .background(
+                    NavigationLink(
+                        destination: CategoryView(),
+                        isActive: $showCategoryView,
+                        label: { EmptyView() }
+                    ))
+                List {
+                    ForEach($groupedExpenses) { $group in
+                        Section(group.groupTitle) {
+                            ForEach(group.expenses) { expense in
+                                ExpenseCardView(expense: expense)
+                                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                                        Button {
+                                            context.delete(expense)
+                                            withAnimation {
+                                                group.expenses.removeAll(where: { $0.id == expense.id })
+                                                if group.expenses.isEmpty {
+                                                    groupedExpenses.removeAll(where: { $0.id == group.id })
+                                                }
+                                            }
+                                        } label: {
+                                            Label("Delete", systemImage: "trash")
+                                        }    .tint(.red)
+                                        
+                                    }
+                            }
                         }
                     }
                 }
-            }.toolbar{
-                ToolbarItem(placement: .topBarTrailing){
-                    Button{
-                        addExpense.toggle()
-                    }label:{
-                        Image(systemName: "plus.circle.fill").font(.title3)
+            }
+            .navigationTitle("Expenses")
+                .overlay{
+                    if allExpenses.isEmpty || groupedExpenses.isEmpty{
+                        ContentUnavailableView{
+                            Label("No Expenses", systemImage:"tray.fill")
+                        }
                     }
                 }
-            }
-
-        }
-        
-        .navigationTitle("Expenses")
-                .overlay{
-            if allExpenses.isEmpty || groupedExpenses.isEmpty{
-                ContentUnavailableView{
-                    Label("No Expenses", systemImage:"tray.fill")
+            //new category add button
+            
+                .toolbar{
+                    ToolbarItem(placement:.topBarTrailing){
+                        Button{
+                            addExpense.toggle()
+                        } label:{
+                            Image(systemName:"plus.circle.fill").font(.title3)
+                        }
+                    }
                 }
-            }
-        }
-        //new category add button
- 
-  
-        .onChange(of: allExpenses, perform: createGroupedExpenses)
-        .sheet(isPresented: $addExpense){
-            AddExpenseView()
-        }
-}
-    
-    
+                .onChange(of: allExpenses,initial:true){
+                    oldValue,  newValue in
+                    if newValue.count > oldValue.count || groupedExpenses.isEmpty{
+                        createGroupedExpenses(newValue)
+                    }
+                    
+                }
+            
+            
+            
+                .sheet(isPresented: $addExpense){
+                    AddExpenseView()
+                        .interactiveDismissDisabled()
+                }
+        }}
+
     func createGroupedExpenses(_ expenses:[Expense]){
         Task.detached(priority: .high){
             let groupedDict = Dictionary(grouping: expenses){
@@ -81,8 +121,6 @@ struct ExpenseView: View {
     
 }
 
-
-
-#Preview {
+#Preview{
     ExpenseView()
 }
