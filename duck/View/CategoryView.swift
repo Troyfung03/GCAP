@@ -11,6 +11,7 @@ struct CategoryView: View {
     
     var body: some View {
         NavigationStack {
+            
             List {
                 ForEach(allCategories.sorted(by: {
                     ($0.expenses?.count ?? 0) > ($1.expenses?.count ?? 0)
@@ -46,15 +47,7 @@ struct CategoryView: View {
                         }
                     }
                 }
-                .toolbar {
-                    ToolbarItem(placement:.topBarTrailing) {
-                        Button {
-                            addCategory.toggle()
-                        } label: {
-                            Image(systemName:"plus.circle.fill").font(.title3)
-                        }
-                    }
-                }
+
                 .sheet(isPresented: $addCategory) {
                     categoryName = ""
                 } content: {
@@ -84,6 +77,7 @@ struct CategoryView: View {
                         }
                     }
                 }
+
                 .presentationDetents([.height(180)])
                 .presentationCornerRadius(20)
                 .interactiveDismissDisabled()
@@ -102,6 +96,14 @@ struct CategoryView: View {
                     requestedCategory = nil
                 } label: {
                     Text("Cancel")
+                }
+            }
+        }                .toolbar {
+            ToolbarItem(placement:.topBarTrailing) {
+                Button {
+                    addCategory.toggle()
+                } label: {
+                    Image(systemName:"plus.circle.fill").font(.title3)
                 }
             }
         }

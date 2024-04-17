@@ -13,24 +13,27 @@ struct ExpenseCardView: View {
     var body: some View {  
         HStack{
             VStack(alignment: .leading){
-                Text(expense.title)
-                Text(expense.subt)
-                    .font(.caption)
-                    .foregroundStyle(.gray)
+                HStack {
+                    Text(expense.title)
+                    Spacer()
+                    if let categoryName = expense.category?.categoryName, displayTag {
+                        Text(categoryName)
+                            .font(.caption2)
+                            .foregroundStyle(.white)
+                            .padding(.horizontal,10)
+                            .padding(.vertical,4)
+                            .background(.red.gradient, in: .capsule)
+                    }
+                }
+                HStack {
+                    Text(expense.subt)
+                        .font(.caption)
+                        .foregroundStyle(.gray)
+                    Spacer()
+                    Text(expense.currencyString)
+                        .font(.title3.bold())
+                }
             }
-            if let categoryName = expense.category?.categoryName, displayTag{
-                Text(categoryName)
-                    .font(.caption2)
-                    .foregroundStyle(.white)
-                    .padding(.horizontal,10)
-                    .padding(.vertical,4)
-                    .background(.red.gradient, in: .capsule)
-            }}
-        .lineLimit(1)
-        Spacer(minLength: 5)
-
-        Text(expense.currencyString)
-        .font(.title3.bold())
+        }
     }
-     }
-
+}

@@ -24,58 +24,61 @@ struct ExpenseView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Button(action: {
-                    showCategoryView = true
-                }) {
-                    Text("Categories")
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
-                .padding()
-                .background(
-                    NavigationLink(
-                        destination: CategoryView(),
-                        isActive: $showCategoryView,
-                        label: { EmptyView() }
-                    ))
-                List {
-                    ForEach($groupedExpenses) { $group in
-                        Section(group.groupTitle) {
-                            ForEach(group.expenses) { expense in
-                                ExpenseCardView(expense: expense)
-                                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                                        Button {
-                                            context.delete(expense)
-                                            withAnimation {
-                                                group.expenses.removeAll(where: { $0.id == expense.id })
-                                                if group.expenses.isEmpty {
-                                                    groupedExpenses.removeAll(where: { $0.id == group.id })
+  VStack {
+                    HStack {
+                        Text("Expenses")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .padding(.leading)
+                        Spacer()
+                        Button(action: {
+                            showCategoryView = true
+                        }) {
+                            Text("Categories")
+                                .padding()
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                        }
+                        .padding(.trailing)
+                        .background(
+                            NavigationLink(
+                                destination: CategoryView(),
+                                isActive: $showCategoryView,
+                                label: { EmptyView() }
+                            ))
+                    }
+                    .searchable(text: $searchText, placement: .navigationBarDrawer, prompt: Text("Search"))
+                    List {
+                        ForEach($groupedExpenses) { $group in
+                            Section(group.groupTitle) {
+                                ForEach(group.expenses) { expense in
+                                    ExpenseCardView(expense: expense)
+                                        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                                            Button {
+                                                context.delete(expense)
+                                                withAnimation {
+                                                    group.expenses.removeAll(where: { $0.id == expense.id })
+                                                    if group.expenses.isEmpty {
+                                                        groupedExpenses.removeAll(where: { $0.id == group.id })
+                                                    }
                                                 }
-                                            }
-                                        } label: {
-                                            Label("Delete", systemImage: "trash")
-                                        }    .tint(.red)
-                                    }
+                                            } label: {
+                                                Label("Delete", systemImage: "trash")
+                                            }    .tint(.red)
+                                     }
+                                }
+                            }
+                        }
+                        .overlay{
+                            if allExpenses.isEmpty || groupedExpenses.isEmpty{
+                                ContentUnavailableView{
+                                    Label("No Expenses", systemImage:"tray.fill")
+                                }
                             }
                         }
                     }
-                    
-                    
                 }
-                .navigationTitle("Expenses")
-                .searchable(text: $searchText, placement: .navigationBarDrawer, prompt: Text("Search"))
-                .overlay{
-                    if allExpenses.isEmpty || groupedExpenses.isEmpty{
-                        ContentUnavailableView{
-                            Label("No Expenses", systemImage:"tray.fill")
-                        }
-                    }
-                }
-                
-                //new category add button
-                
                 .toolbar{
                     ToolbarItem(placement:.topBarTrailing){
                         Button{
