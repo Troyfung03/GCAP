@@ -12,24 +12,26 @@ struct ContentView: View {
     //View Properties
     @State private var currentTab: String = "Home"
 
-
     var body: some View {
         NavigationView {
-
                 TabView(selection: $currentTab) {
-                    HomeView().tag("Home").tabItem {
+                    HomeView()
+                    .tag("Home").tabItem {
                         Image(systemName:"house")
                     }
-                    NewsView().tag("News").tabItem {
+                    NewsView()
+                    .tag("News").tabItem {
                         Image(systemName:"newspaper")
                     }
-                    ChatBotView().tag("ChatBot").tabItem {
+                    ChatBotView()
+                    .tag("ChatBot").tabItem {
                         Image(systemName:"shared.with.you")
                     }
                     ExpenseView().tag("Expenses").tabItem {
                         Image(systemName:"dollarsign.arrow.circlepath")
                     }
-                    TimesView().tag("Time Manager").tabItem {
+                    TimesView()
+                    .tag("Time Manager").tabItem {
                         Image(systemName:"calendar")
                     }
                 
