@@ -48,7 +48,37 @@ struct CategoryView: View {
                     }
                 }
 
-                .sheet(isPresented: $addCategory) {
+                .presentationDetents([.height(180)])
+                .presentationCornerRadius(20)
+                .interactiveDismissDisabled()
+            }
+            .alert("If you delete a category, all the associated expenses will be deleted too!",
+                   isPresented: $deleteRequest) {
+                Button(role: .destructive) {
+                    if let requestedCategory = requestedCategory {
+                        context.delete(requestedCategory)
+                        self.requestedCategory = nil
+                    }
+                } label: {
+                    Text("Delete")
+                }
+                Button(role: .cancel) {
+                    requestedCategory = nil
+                } label: {
+                    Text("Cancel")
+                }
+            }
+        }                
+        .toolbar {
+            ToolbarItem(placement:.topBarTrailing) {
+                Button {
+                    addCategory.toggle()
+                } label: {
+                    Image(systemName:"plus.circle.fill").font(.title3)
+                }
+            }
+        }
+                        .sheet(isPresented: $addCategory) {
                     categoryName = ""
                 } content: {
                     NavigationStack {
@@ -77,35 +107,5 @@ struct CategoryView: View {
                         }
                     }
                 }
-
-                .presentationDetents([.height(180)])
-                .presentationCornerRadius(20)
-                .interactiveDismissDisabled()
-            }
-            .alert("If you delete a category, all the associated expenses will be deleted too!",
-                   isPresented: $deleteRequest) {
-                Button(role: .destructive) {
-                    if let requestedCategory = requestedCategory {
-                        context.delete(requestedCategory)
-                        self.requestedCategory = nil
-                    }
-                } label: {
-                    Text("Delete")
-                }
-                Button(role: .cancel) {
-                    requestedCategory = nil
-                } label: {
-                    Text("Cancel")
-                }
-            }
-        }                .toolbar {
-            ToolbarItem(placement:.topBarTrailing) {
-                Button {
-                    addCategory.toggle()
-                } label: {
-                    Image(systemName:"plus.circle.fill").font(.title3)
-                }
-            }
-        }
     }
 }
