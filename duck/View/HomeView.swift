@@ -1,9 +1,3 @@
-//
-//  HomeView.swift
-//  duck
-//
-//  Created by troyfung on 19/3/2024.
-//
 import SwiftUI
 
 struct HomeView: View {
@@ -11,14 +5,15 @@ struct HomeView: View {
         NavigationView {
             VStack {
                 NavigationStack{
-                    List{
-                        Text("Upcoming Schedules")
-                        Rectangle().frame(height: 100).padding()
-                        Text("Recent News")
-                        Rectangle().frame(height: 100).padding()
-                    }.navigationTitle("Home")
-                }
-                
+                    GifImage("duck")
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    
+                    Text("Hello! I am the duck manager")
+                        .font(.title2)
+                        .padding()
+                        .bold()
+                    
+                }.navigationTitle("Home")
             }
         }
     }

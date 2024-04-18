@@ -31,6 +31,8 @@
 		0EE6E8322BD15E8D00136DC9 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE6E8312BD15E8D00136DC9 /* CalendarHelper.swift */; };
 		0EE6E8342BD15EDC00136DC9 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE6E8332BD15EDC00136DC9 /* CalendarCell.swift */; };
 		0EE6E8362BD15F2500136DC9 /* MonthStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE6E8352BD15F2500136DC9 /* MonthStruct.swift */; };
+		0EE6E8382BD166FF00136DC9 /* duck.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0EE6E8372BD166FF00136DC9 /* duck.gif */; };
+		0EE6E83A2BD1677700136DC9 /* GifImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE6E8392BD1677700136DC9 /* GifImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		0EE6E8312BD15E8D00136DC9 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		0EE6E8332BD15EDC00136DC9 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		0EE6E8352BD15F2500136DC9 /* MonthStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthStruct.swift; sourceTree = "<group>"; };
+		0EE6E8372BD166FF00136DC9 /* duck.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = duck.gif; path = ../../../Downloads/duck.gif; sourceTree = "<group>"; };
+		0EE6E8392BD1677700136DC9 /* GifImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,7 @@
 		0EAF98F52B98B0DA00FBFC8E /* duck */ = {
 			isa = PBXGroup;
 			children = (
+				0EE6E8372BD166FF00136DC9 /* duck.gif */,
 				0EE6E8302BD15E6C00136DC9 /* Helper */,
 				0EAF99232B98C8DC00FBFC8E /* Model */,
 				0EAF99252B98C92700FBFC8E /* View */,
@@ -192,6 +197,7 @@
 				0EE6E82E2BD15DA000136DC9 /* DateScrollerView.swift */,
 				0EE6E8332BD15EDC00136DC9 /* CalendarCell.swift */,
 				0EE6E8352BD15F2500136DC9 /* MonthStruct.swift */,
+				0EE6E8392BD1677700136DC9 /* GifImage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -309,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EAF99012B98B0DE00FBFC8E /* Preview Assets.xcassets in Resources */,
+				0EE6E8382BD166FF00136DC9 /* duck.gif in Resources */,
 				0EAF98FD2B98B0DE00FBFC8E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,6 +355,7 @@
 				0E2FE7BC2BA952B100348DB5 /* HomeView.swift in Sources */,
 				0E2FE7BE2BA9572F00348DB5 /* GroupedExpenses.swift in Sources */,
 				0EE6E8342BD15EDC00136DC9 /* CalendarCell.swift in Sources */,
+				0EE6E83A2BD1677700136DC9 /* GifImage.swift in Sources */,
 				0EAF98F72B98B0DA00FBFC8E /* duckApp.swift in Sources */,
 				0E2FE7C42BA9997C00348DB5 /* ChatBotView.swift in Sources */,
 				0EAF992F2B98CC1300FBFC8E /* ExpenseView.swift in Sources */,

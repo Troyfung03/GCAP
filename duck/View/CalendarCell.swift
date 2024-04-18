@@ -1,21 +1,36 @@
 import SwiftUI
-
-struct CalendarCell: View
-{
+struct CalendarCell: View {
     @EnvironmentObject var dateHolder: DateHolder
-    let count : Int
-    let startingSpaces : Int
-    let daysInMonth : Int
-    let daysInPrevMonth : Int
-    
-    var body: some View
-    {
-        Text(monthStruct().day())
-            .foregroundColor(textColor(type: monthStruct().monthType))
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+    let count: Int
+    let startingSpaces: Int
+    let daysInMonth: Int
+    let daysInPrevMonth: Int
+    @State private var isShowingNotes = false
+    @State private var notes = ""
+
+    var body: some View {
+        ZStack {
+            Button(action: {
+                isShowingNotes.toggle()
+            }) {
+                VStack {
+                    Text(monthStruct().day())
+                        .foregroundColor(textColor(type: monthStruct().monthType))
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .padding()
+                }
+                .background(notes.isEmpty ? Color.clear : Color.yellow)
+                .cornerRadius(8)
+            }
+        }                .
+        sheet(isPresented: $isShowingNotes){
+            AddExpenseView()
+                .interactiveDismissDisabled()
+        }
+        
     }
-    func textColor(type: MonthType) -> Color
-    {
+
+    func textColor(type: MonthType) -> Color {
         return type == MonthType.Current ? Color.black : Color.gray
     }
     
@@ -38,8 +53,3 @@ struct CalendarCell: View
     }
 }
 
-struct CalendarCell_Previews: PreviewProvider {
-    static var previews: some View {
-        CalendarCell(count: 1, startingSpaces: 1, daysInMonth: 1, daysInPrevMonth: 1)
-    }
-}
