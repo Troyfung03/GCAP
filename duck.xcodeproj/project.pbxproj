@@ -33,6 +33,8 @@
 		0EE6E8362BD15F2500136DC9 /* MonthStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE6E8352BD15F2500136DC9 /* MonthStruct.swift */; };
 		0EE6E8382BD166FF00136DC9 /* duck.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0EE6E8372BD166FF00136DC9 /* duck.gif */; };
 		0EE6E83A2BD1677700136DC9 /* GifImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE6E8392BD1677700136DC9 /* GifImage.swift */; };
+		0EE6E83C2BD16DBA00136DC9 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE6E83B2BD16DBA00136DC9 /* Notes.swift */; };
+		0EE6E83F2BD16F8D00136DC9 /* AddNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE6E83E2BD16F8D00136DC9 /* AddNotesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		0EE6E8352BD15F2500136DC9 /* MonthStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthStruct.swift; sourceTree = "<group>"; };
 		0EE6E8372BD166FF00136DC9 /* duck.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = duck.gif; path = ../../../Downloads/duck.gif; sourceTree = "<group>"; };
 		0EE6E8392BD1677700136DC9 /* GifImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImage.swift; sourceTree = "<group>"; };
+		0EE6E83B2BD16DBA00136DC9 /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
+		0EE6E83E2BD16F8D00136DC9 /* AddNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNotesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +183,7 @@
 				0EAF992C2B98CABF00FBFC8E /* Category.swift */,
 				0E2FE7BD2BA9572F00348DB5 /* GroupedExpenses.swift */,
 				0EE6E82C2BD15CC600136DC9 /* DateHolder.swift */,
+				0EE6E83B2BD16DBA00136DC9 /* Notes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 				0EE6E8332BD15EDC00136DC9 /* CalendarCell.swift */,
 				0EE6E8352BD15F2500136DC9 /* MonthStruct.swift */,
 				0EE6E8392BD1677700136DC9 /* GifImage.swift */,
+				0EE6E83E2BD16F8D00136DC9 /* AddNotesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -349,11 +355,13 @@
 				0EAF99312B98CC2F00FBFC8E /* CategoryView.swift in Sources */,
 				0EAF992D2B98CAC000FBFC8E /* Category.swift in Sources */,
 				0E2FE7C02BA9992400348DB5 /* NewsView.swift in Sources */,
+				0EE6E83C2BD16DBA00136DC9 /* Notes.swift in Sources */,
 				0EE6E8322BD15E8D00136DC9 /* CalendarHelper.swift in Sources */,
 				0EAF98F92B98B0DA00FBFC8E /* ContentView.swift in Sources */,
 				0EAF98FB2B98B0DA00FBFC8E /* Item.swift in Sources */,
 				0E2FE7BC2BA952B100348DB5 /* HomeView.swift in Sources */,
 				0E2FE7BE2BA9572F00348DB5 /* GroupedExpenses.swift in Sources */,
+				0EE6E83F2BD16F8D00136DC9 /* AddNotesView.swift in Sources */,
 				0EE6E8342BD15EDC00136DC9 /* CalendarCell.swift in Sources */,
 				0EE6E83A2BD1677700136DC9 /* GifImage.swift in Sources */,
 				0EAF98F72B98B0DA00FBFC8E /* duckApp.swift in Sources */,
