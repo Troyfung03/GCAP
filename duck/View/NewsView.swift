@@ -63,6 +63,10 @@ struct NewsView: View {
     // Add these state variables
     @State private var selectedRegion = "us"
     @State private var selectedCategory =  "general"
+    let regions = ["Argentina": "ar", "Greece": "gr", "Netherlands": "nl", "South Africa": "za", "Australia": "au", "Hong Kong": "hk", "New Zealand": "nz", "South Korea": "kr", "Austria": "at", "Hungary": "hu", "Nigeria": "ng", "Sweden": "se", "Belgium": "be", "India": "in", "Norway": "no", "Switzerland": "ch", "Brazil": "br", "Indonesia": "id", "Philippines": "ph", "Taiwan": "tw", "Bulgaria": "bg", "Ireland": "ie", "Poland": "pl", "Thailand": "th", "Canada": "ca", "Israel": "il", "Portugal": "pt", "Turkey": "tr", "China": "cn", "Italy": "it", "Romania": "ro", "UAE": "ae", "Colombia": "co", "Japan": "jp", "Russia": "ru", "Ukraine": "ua", "Cuba": "cu", "Latvia": "lv", "Saudi Arabia": "sa", "United Kingdom": "gb", "Czech Republic": "cz", "Lithuania": "lt", "Serbia": "rs", "United States": "us", "Egypt": "eg", "Malaysia": "my", "Singapore": "sg", "Venezuela": "ve", "France": "fr", "Mexico": "mx", "Slovakia": "sk", "Germany": "de", "Morocco": "ma", "Slovenia": "si"]
+   var sortedRegions: [String] {
+    regions.keys.sorted()
+}
     var body: some View {
         NavigationView {
             ScrollView {
@@ -91,29 +95,7 @@ struct NewsView: View {
                             .padding(.horizontal, 8)
                     )
                     .padding(.horizontal)
-                    .keyboardType(.default)
-                    let regions = ["Argentina": "ar", "Greece": "gr", "Netherlands": "nl", "South Africa": "za", "Australia": "au", "Hong Kong": "hk", "New Zealand": "nz", "South Korea": "kr", "Austria": "at", "Hungary": "hu", "Nigeria": "ng", "Sweden": "se", "Belgium": "be", "India": "in", "Norway": "no", "Switzerland": "ch", "Brazil": "br", "Indonesia": "id", "Philippines": "ph", "Taiwan": "tw", "Bulgaria": "bg", "Ireland": "ie", "Poland": "pl", "Thailand": "th", "Canada": "ca", "Israel": "il", "Portugal": "pt", "Turkey": "tr", "China": "cn", "Italy": "it", "Romania": "ro", "UAE": "ae", "Colombia": "co", "Japan": "jp", "Russia": "ru", "Ukraine": "ua", "Cuba": "cu", "Latvia": "lv", "Saudi Arabia": "sa", "United Kingdom": "gb", "Czech Republic": "cz", "Lithuania": "lt", "Serbia": "rs", "United States": "us", "Egypt": "eg", "Malaysia": "my", "Singapore": "sg", "Venezuela": "ve", "France": "fr", "Mexico": "mx", "Slovakia": "sk", "Germany": "de", "Morocco": "ma", "Slovenia": "si"]
-                    let sortedRegions = regions.keys.sorted()
-                    
-                    Menu {
-                        ForEach(sortedRegions, id: \.self) { region in
-                            Button(action: {
-                                selectedRegion = regions[region] ?? "us"
-                            }) {
-                                Text(region)
-                            }
-                        }
-                    } label: {
-                        var selectedRegionName: String {
-                            return regions.first(where: { $1 == selectedRegion })?.key ?? "United States"
-                        }
-                        Text("Region: \(selectedRegionName)")
-                    }
-                    .pickerStyle(SegmentedPickerStyle())
-                    .padding(.horizontal)
-                    
-                    
-                    
+                    .keyboardType(.default)                    
                     
                     ForEach(api.news, id: \.title) { item in
                         Link(destination: URL(string: item.url)!, label: {
@@ -143,6 +125,43 @@ struct NewsView: View {
                 }
             }
             .navigationTitle("Recent News")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Text("Recent News")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .padding(.leading)
+                        Spacer()
+                
+        Menu {
+            // Prioritize the selected region
+            Button(action: {
+                // No action needed as it's already selected
+            }) {
+                HStack {
+                    Text(regions.first(where: { $1 == selectedRegion })?.key ?? "United States")
+                    Image(systemName: "checkmark")
+                }
+            }
+            Divider()
+            // List the rest of the regions
+            ForEach(sortedRegions, id: \.self) { region in
+                if (regions[region] ?? "us") != selectedRegion {
+                    Button(action: {
+                        selectedRegion = regions[region] ?? "us"
+                    }) {
+                        Text(region)
+                    }
+                }
+            }
+        } label: {
+            Image(systemName: "globe")
+        }
+    }
+}
+
         }
         .onAppear(perform: {
             api.fetchNews(region: selectedRegion, category: selectedCategory)
@@ -153,7 +172,7 @@ struct NewsView: View {
         .onChange(of: selectedCategory) { newValue in
             api.fetchNews(region: selectedRegion, category: newValue)
         }
-       }
+       }}
 }
 #Preview {
     NewsView()
