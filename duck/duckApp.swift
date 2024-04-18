@@ -17,6 +17,6 @@ struct duckApp: App {
             ContentView()
             .environmentObject(dateHolder)
         } 
-        .modelContainer(for: [Expense.self, Category.self])
+        .modelContainer(for: [Expense.self, Category.self, Notes.self])
     }
 }

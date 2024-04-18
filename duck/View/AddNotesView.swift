@@ -47,6 +47,8 @@ struct AddNotesView: View {
 func addNote() {
     let notes = Notes(title: title, desc: desc, date: date)
     context.insert(notes)
+    try? context.save() // Save the context
     dismiss()
-}}
+}
+}
 

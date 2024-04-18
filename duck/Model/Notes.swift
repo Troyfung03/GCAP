@@ -18,7 +18,7 @@ class Notes{
     
     init(title: String, desc: String,date: Date) {
         self.title = title
-        self.desc = description
+        self.desc = desc
         self.date = date
     }
 }

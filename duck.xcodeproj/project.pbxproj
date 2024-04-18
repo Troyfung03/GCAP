@@ -35,6 +35,7 @@
 		0EE6E83A2BD1677700136DC9 /* GifImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE6E8392BD1677700136DC9 /* GifImage.swift */; };
 		0EE6E83C2BD16DBA00136DC9 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE6E83B2BD16DBA00136DC9 /* Notes.swift */; };
 		0EE6E83F2BD16F8D00136DC9 /* AddNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE6E83E2BD16F8D00136DC9 /* AddNotesView.swift */; };
+		0EE6E8412BD1719C00136DC9 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE6E8402BD1719C00136DC9 /* NotesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		0EE6E8392BD1677700136DC9 /* GifImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImage.swift; sourceTree = "<group>"; };
 		0EE6E83B2BD16DBA00136DC9 /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
 		0EE6E83E2BD16F8D00136DC9 /* AddNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNotesView.swift; sourceTree = "<group>"; };
+		0EE6E8402BD1719C00136DC9 /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 				0EE6E8352BD15F2500136DC9 /* MonthStruct.swift */,
 				0EE6E8392BD1677700136DC9 /* GifImage.swift */,
 				0EE6E83E2BD16F8D00136DC9 /* AddNotesView.swift */,
+				0EE6E8402BD1719C00136DC9 /* NotesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				0E7F679D2BCF976100F0A5E6 /* ExpenseCardView.swift in Sources */,
 				0EAF99292B98C98900FBFC8E /* Expense.swift in Sources */,
 				0EAF99312B98CC2F00FBFC8E /* CategoryView.swift in Sources */,
+				0EE6E8412BD1719C00136DC9 /* NotesView.swift in Sources */,
 				0EAF992D2B98CAC000FBFC8E /* Category.swift in Sources */,
 				0E2FE7C02BA9992400348DB5 /* NewsView.swift in Sources */,
 				0EE6E83C2BD16DBA00136DC9 /* Notes.swift in Sources */,

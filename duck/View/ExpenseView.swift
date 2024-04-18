@@ -144,7 +144,7 @@ struct ExpenseView: View {
     @State private var originalGroupedExpenses: [GroupedExpenses] = []
     @State private var showCategoryView = false
     @Environment(\.modelContext) private var context
-        @State private var trendData: [Double] = []
+    @State private var trendData: [Double] = []
     @State private var searchText: String = ""
     
     
