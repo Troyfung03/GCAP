@@ -178,6 +178,3 @@ struct NewsView: View {
             }
         }}
 }
-#Preview {
-    NewsView()
-}

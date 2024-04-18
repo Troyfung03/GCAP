@@ -86,6 +86,3 @@ struct AddExpenseView: View {
     }
     
 }
-#Preview{
-    AddExpenseView()
-}

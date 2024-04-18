@@ -60,14 +60,6 @@ struct TimesView: View
         .frame(maxHeight: .infinity)
     }
 }
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-
-
 extension Text
 {
     func dayOfWeek() -> some View

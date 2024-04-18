@@ -15,7 +15,7 @@ struct HomeView: View {
                     Text("I am the duck manager ^_^")
                         .font(.title2)
                         .bold()
-                }.navigationTitle("HomePage")
+                }.navigationTitle("Homepage")
             }
         }
     }
