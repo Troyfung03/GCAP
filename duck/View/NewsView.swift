@@ -100,7 +100,7 @@ struct NewsView: View {
                     ForEach(api.news, id: \.title) { item in
                         Link(destination: URL(string: item.url)!, label: {
                             VStack(alignment: .leading) {
-                                if let imageUrl = item.urlToImage, let url = URL(string: imageUrl) {
+                                if let imageUrl = item.urlToImage, !imageUrl.isEmpty, let url = URL(string: imageUrl) {
                                     AsyncImage(url: url) { image in
                                         image.resizable().scaledToFit()
                                     } placeholder: {
@@ -108,6 +108,10 @@ struct NewsView: View {
                                             .resizable()
                                             .scaledToFit()
                                     }
+                                } else {
+                                    Image("News")
+                                        .resizable()
+                                        .scaledToFit()
                                 }
                                 Text(item.title)
                                     .font(.headline).multilineTextAlignment(.leading)
@@ -124,7 +128,7 @@ struct NewsView: View {
                     
                 }
             }
-            .navigationTitle("Recent News")
+            .navigationTitle("News")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
