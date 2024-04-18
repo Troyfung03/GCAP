@@ -7,28 +7,28 @@ struct CalendarCell: View {
     let daysInPrevMonth: Int
     @State private var isShowingNotes = false
     @State private var notes = ""
-
-var body: some View {
-    ZStack {
-        Button(action: {
-            isShowingNotes.toggle()
-        }) {
-            VStack {
-                Text(monthStruct().day())
-                    .foregroundColor(textColor(type: monthStruct().monthType))
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .padding()
+    
+    var body: some View {
+        ZStack {
+            Button(action: {
+                isShowingNotes.toggle()
+            }) {
+                VStack {
+                    Text(monthStruct().day())
+                        .foregroundColor(textColor(type: monthStruct().monthType))
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .padding()
+                }
+                .background(notes.isEmpty ? Color.clear : Color.yellow)
+                .cornerRadius(8)
             }
-            .background(notes.isEmpty ? Color.clear : Color.yellow)
-            .cornerRadius(8)
-        }
-        
-        NavigationLink(destination: NotesView(), isActive: $isShowingNotes) {
-            EmptyView()
+            
+            NavigationLink(destination: NotesView(), isActive: $isShowingNotes) {
+                EmptyView()
+            }
         }
     }
-}
-
+    
     func textColor(type: MonthType) -> Color {
         return type == MonthType.Current ? Color.black : Color.gray
     }

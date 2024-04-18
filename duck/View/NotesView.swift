@@ -5,7 +5,7 @@ struct NotesView: View {
     @Query(sort:[ SortDescriptor(\Notes.date, order: .reverse)], animation: .snappy)
     private var notes: [Notes]
     @State private var addNotes: Bool = false
-
+    
     var body: some View {
         NavigationView {
             VStack {

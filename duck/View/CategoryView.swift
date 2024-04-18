@@ -47,7 +47,7 @@ struct CategoryView: View {
                         }
                     }
                 }
-
+                
                 .presentationDetents([.height(180)])
                 .presentationCornerRadius(20)
                 .interactiveDismissDisabled()
@@ -78,34 +78,34 @@ struct CategoryView: View {
                 }
             }
         }
-                        .sheet(isPresented: $addCategory) {
-                    categoryName = ""
-                } content: {
-                    NavigationStack {
-                        List {
-                            Section("Title") {
-                                TextField("Category Name", text: $categoryName)
-                            }
-                        }
-                        .navigationTitle("Category Name")
-                        .navigationBarTitleDisplayMode(.inline)
-                        .toolbar {
-                            ToolbarItem(placement: .topBarLeading) {
-                                Button("Cancel") {
-                                    addCategory = false
-                                }
-                            }
-                            ToolbarItem(placement: .topBarTrailing) {
-                                Button("Add") {
-                                    let category = Category(categoryName: categoryName)
-                                    context.insert(category)
-                                    categoryName = ""
-                                    addCategory = false
-                                }
-                                .disabled(categoryName.isEmpty)
-                            }
-                        }
+        .sheet(isPresented: $addCategory) {
+            categoryName = ""
+        } content: {
+            NavigationStack {
+                List {
+                    Section("Title") {
+                        TextField("Category Name", text: $categoryName)
                     }
                 }
+                .navigationTitle("Category Name")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button("Cancel") {
+                            addCategory = false
+                        }
+                    }
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button("Add") {
+                            let category = Category(categoryName: categoryName)
+                            context.insert(category)
+                            categoryName = ""
+                            addCategory = false
+                        }
+                        .disabled(categoryName.isEmpty)
+                    }
+                }
+            }
+        }
     }
 }

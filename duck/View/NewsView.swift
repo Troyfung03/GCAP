@@ -26,36 +26,36 @@ class NewsAPI: ObservableObject {
     @Published var news = [News]()
     @Published var searchTerm = ""
     
-func fetchNews(region: String, category: String) {
-    var base = "https://newsapi.org/v2/top-headlines?country=\(region)&category=\(category)"
-    let apiKey = "&apiKey=b39a5c0b11da4a2597d048c140b41d57"
-    
-    var url = URL(string: base+apiKey)!
-    
-    if !searchTerm.isEmpty {
-        let query = "q=\(searchTerm.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")"
-        base = "https://newsapi.org/v2/everything?\(query)&sortBy=popularity"
-        url = URL(string: base + apiKey)!
-    }
-
-    print("URL: \(url)") // Print the URL
-
-    URLSession.shared.dataTask(with: url) { (data, response, error) in
-        if let data = data {
-            do {
-                let decodedResponse = try JSONDecoder().decode(NewsResponse.self, from: data)
-                DispatchQueue.main.async {
-                    self.news = decodedResponse.articles
-                    
-}
-            } catch {
-                print("Decoding failed: \(error)") // Print decoding errors
-            }
-        } else if let error = error {
-            print("Fetch failed: \(error.localizedDescription)") // Print network errors
+    func fetchNews(region: String, category: String) {
+        var base = "https://newsapi.org/v2/top-headlines?country=\(region)&category=\(category)"
+        let apiKey = "&apiKey=b39a5c0b11da4a2597d048c140b41d57"
+        
+        var url = URL(string: base+apiKey)!
+        
+        if !searchTerm.isEmpty {
+            let query = "q=\(searchTerm.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")"
+            base = "https://newsapi.org/v2/everything?\(query)&sortBy=popularity"
+            url = URL(string: base + apiKey)!
         }
-    }.resume()
-}}
+        
+        print("URL: \(url)") // Print the URL
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let data = data {
+                do {
+                    let decodedResponse = try JSONDecoder().decode(NewsResponse.self, from: data)
+                    DispatchQueue.main.async {
+                        self.news = decodedResponse.articles
+                        
+                    }
+                } catch {
+                    print("Decoding failed: \(error)") // Print decoding errors
+                }
+            } else if let error = error {
+                print("Fetch failed: \(error.localizedDescription)") // Print network errors
+            }
+        }.resume()
+    }}
 
 struct NewsView: View {
     @ObservedObject var api = NewsAPI()
@@ -64,9 +64,9 @@ struct NewsView: View {
     @State private var selectedRegion = "us"
     @State private var selectedCategory =  "general"
     let regions = ["Argentina": "ar", "Greece": "gr", "Netherlands": "nl", "South Africa": "za", "Australia": "au", "Hong Kong": "hk", "New Zealand": "nz", "South Korea": "kr", "Austria": "at", "Hungary": "hu", "Nigeria": "ng", "Sweden": "se", "Belgium": "be", "India": "in", "Norway": "no", "Switzerland": "ch", "Brazil": "br", "Indonesia": "id", "Philippines": "ph", "Taiwan": "tw", "Bulgaria": "bg", "Ireland": "ie", "Poland": "pl", "Thailand": "th", "Canada": "ca", "Israel": "il", "Portugal": "pt", "Turkey": "tr", "China": "cn", "Italy": "it", "Romania": "ro", "UAE": "ae", "Colombia": "co", "Japan": "jp", "Russia": "ru", "Ukraine": "ua", "Cuba": "cu", "Latvia": "lv", "Saudi Arabia": "sa", "United Kingdom": "gb", "Czech Republic": "cz", "Lithuania": "lt", "Serbia": "rs", "United States": "us", "Egypt": "eg", "Malaysia": "my", "Singapore": "sg", "Venezuela": "ve", "France": "fr", "Mexico": "mx", "Slovakia": "sk", "Germany": "de", "Morocco": "ma", "Slovenia": "si"]
-   var sortedRegions: [String] {
-    regions.keys.sorted()
-}
+    var sortedRegions: [String] {
+        regions.keys.sorted()
+    }
     var body: some View {
         NavigationView {
             ScrollView {
@@ -134,45 +134,45 @@ struct NewsView: View {
                             .fontWeight(.bold)
                             .padding(.leading)
                         Spacer()
-                
-        Menu {
-            // Prioritize the selected region
-            Button(action: {
-                // No action needed as it's already selected
-            }) {
-                HStack {
-                    Text(regions.first(where: { $1 == selectedRegion })?.key ?? "United States")
-                    Image(systemName: "checkmark")
-                }
-            }
-            Divider()
-            // List the rest of the regions
-            ForEach(sortedRegions, id: \.self) { region in
-                if (regions[region] ?? "us") != selectedRegion {
-                    Button(action: {
-                        selectedRegion = regions[region] ?? "us"
-                    }) {
-                        Text(region)
+                        
+                        Menu {
+                            // Prioritize the selected region
+                            Button(action: {
+                                // No action needed as it's already selected
+                            }) {
+                                HStack {
+                                    Text(regions.first(where: { $1 == selectedRegion })?.key ?? "United States")
+                                    Image(systemName: "checkmark")
+                                }
+                            }
+                            Divider()
+                            // List the rest of the regions
+                            ForEach(sortedRegions, id: \.self) { region in
+                                if (regions[region] ?? "us") != selectedRegion {
+                                    Button(action: {
+                                        selectedRegion = regions[region] ?? "us"
+                                    }) {
+                                        Text(region)
+                                    }
+                                }
+                            }
+                        } label: {
+                            Image(systemName: "globe")
+                        }
                     }
                 }
+                
             }
-        } label: {
-            Image(systemName: "globe")
-        }
-    }
-}
-
-        }
-        .onAppear(perform: {
-            api.fetchNews(region: selectedRegion, category: selectedCategory)
-        })
-        .onChange(of: selectedRegion) { newValue in
-            api.fetchNews(region: newValue, category: selectedCategory)
-        }
-        .onChange(of: selectedCategory) { newValue in
-            api.fetchNews(region: selectedRegion, category: newValue)
-        }
-       }}
+            .onAppear(perform: {
+                api.fetchNews(region: selectedRegion, category: selectedCategory)
+            })
+            .onChange(of: selectedRegion) { newValue in
+                api.fetchNews(region: newValue, category: selectedCategory)
+            }
+            .onChange(of: selectedCategory) { newValue in
+                api.fetchNews(region: selectedRegion, category: newValue)
+            }
+        }}
 }
 #Preview {
     NewsView()

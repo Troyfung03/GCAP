@@ -1,10 +1,3 @@
-//
-//  Expense.swift
-//  duck
-//
-//  Created by troyfung on 6/3/2024.
-//
-
 import SwiftUI
 import SwiftData
 
@@ -24,7 +17,7 @@ class Expense{
         self.date = date
         self.category = category
     }
-
+    
     @Transient
     var currencyString: String{
         let formatter = NumberFormatter()

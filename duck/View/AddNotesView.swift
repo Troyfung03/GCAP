@@ -22,7 +22,7 @@ struct AddNotesView: View {
                         .datePickerStyle(.graphical)
                         .labelsHidden()
                 }
- 
+                
             }
             .navigationTitle("Drop Notes")
             .navigationBarTitleDisplayMode(.inline)
@@ -44,11 +44,11 @@ struct AddNotesView: View {
     var isAddButtonDisabled: Bool{
         return title.isEmpty || desc.isEmpty}
     
-func addNote() {
-    let notes = Notes(title: title, desc: desc, date: date)
-    context.insert(notes)
-    try? context.save() // Save the context
-    dismiss()
-}
+    func addNote() {
+        let notes = Notes(title: title, desc: desc, date: date)
+        context.insert(notes)
+        try? context.save() // Save the context
+        dismiss()
+    }
 }
 

@@ -4,7 +4,7 @@ struct GroupedExpenses: Identifiable{
     var id: UUID = .init()
     var date: Date
     var expenses: [Expense]
-
+    
     var groupTitle: String{
         let calendar = Calendar.current
         if calendar.isDateInToday(date){

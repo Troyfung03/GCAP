@@ -10,7 +10,7 @@ import SwiftUI
 struct ExpenseCardView: View {
     @Bindable var expense: Expense
     var displayTag : Bool = true
-    var body: some View {  
+    var body: some View {
         HStack{
             VStack(alignment: .leading){
                 HStack {

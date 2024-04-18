@@ -10,12 +10,12 @@ import SwiftData
 
 @main
 struct duckApp: App {
-
+    
     var body: some Scene {
         WindowGroup {
             let dateHolder = DateHolder()
             ContentView()
-            .environmentObject(dateHolder)
+                .environmentObject(dateHolder)
         } 
         .modelContainer(for: [Expense.self, Category.self, Notes.self])
     }

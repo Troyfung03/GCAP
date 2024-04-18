@@ -9,7 +9,7 @@ struct AddExpenseView: View {
     @State private var subtitle: String = ""
     @State private var date: Date = .init()
     @State private var amount: CGFloat = 0
-@State private var category: Category? = nil
+    @State private var category: Category? = nil
     @Query (animation: .snappy) private var allCategories: [Category]
     
     var body: some View{
@@ -41,14 +41,14 @@ struct AddExpenseView: View {
                             ForEach(allCategories){ category in Button(category.categoryName){
                                 self.category = category
                             }}
-
+                            
                         }label:{
                             if let categoryName = category?.categoryName{
                                 Text(categoryName)
-                        }else{
-         Text("None")                
+                            }else{
+                                Text("None")                
+                            }
                         }
-}
                     }
                 }
             }
@@ -72,11 +72,11 @@ struct AddExpenseView: View {
     var isAddButtonDisabled: Bool{
         return title.isEmpty || subtitle.isEmpty || amount == .zero}
     
-func addExpense() {
-    let expense = Expense(title: title, subt: subtitle, amount: amount, date: date, category: category)
-    context.insert(expense)
-    dismiss()
-}
+    func addExpense() {
+        let expense = Expense(title: title, subt: subtitle, amount: amount, date: date, category: category)
+        context.insert(expense)
+        dismiss()
+    }
     
     var formatter: NumberFormatter{
         let formatter = NumberFormatter()

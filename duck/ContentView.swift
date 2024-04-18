@@ -11,31 +11,31 @@ import SwiftData
 struct ContentView: View {
     //View Properties
     @State private var currentTab: String = "Home"
-
+    
     var body: some View {
         NavigationView {
-                TabView(selection: $currentTab) {
-                    HomeView()
+            TabView(selection: $currentTab) {
+                HomeView()
                     .tag("Home").tabItem {
                         Image(systemName:"house")
                     }
-                    NewsView()
+                NewsView()
                     .tag("News").tabItem {
                         Image(systemName:"newspaper")
                     }
-                    ChatBotView()
+                ChatBotView()
                     .tag("ChatBot").tabItem {
                         Image(systemName:"shared.with.you")
                     }
-                    ExpenseView().tag("Expenses").tabItem {
-                        Image(systemName:"dollarsign.arrow.circlepath")
-                    }
-                    TimesView()
+                ExpenseView().tag("Expenses").tabItem {
+                    Image(systemName:"dollarsign.arrow.circlepath")
+                }
+                TimesView()
                     .tag("Time Manager").tabItem {
                         Image(systemName:"calendar")
                     }
                 
-}}}}
+            }}}}
 
 #Preview {
     ContentView()
