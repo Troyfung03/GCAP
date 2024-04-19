@@ -15,6 +15,9 @@
 		0E2FE7CA2BAAE3B100348DB5 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2FE7C92BAAE3B100348DB5 /* AddExpenseView.swift */; };
 		0E31F1D82BD21383007C972C /* NotesCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E31F1D72BD21383007C972C /* NotesCardView.swift */; };
 		0E7F679D2BCF976100F0A5E6 /* ExpenseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7F679C2BCF976100F0A5E6 /* ExpenseCardView.swift */; };
+		0EAE67D92BD234CF0033DB2C /* duck.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0EAE67D82BD234CF0033DB2C /* duck.gif */; };
+		0EAE67DA2BD234CF0033DB2C /* duck.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0EAE67D82BD234CF0033DB2C /* duck.gif */; };
+		0EAE67DB2BD234CF0033DB2C /* duck.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0EAE67D82BD234CF0033DB2C /* duck.gif */; };
 		0EAF98F72B98B0DA00FBFC8E /* duckApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAF98F62B98B0DA00FBFC8E /* duckApp.swift */; };
 		0EAF98F92B98B0DA00FBFC8E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAF98F82B98B0DA00FBFC8E /* ContentView.swift */; };
 		0EAF98FB2B98B0DA00FBFC8E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAF98FA2B98B0DA00FBFC8E /* Item.swift */; };
@@ -64,6 +67,7 @@
 		0E2FE7C92BAAE3B100348DB5 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
 		0E31F1D72BD21383007C972C /* NotesCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesCardView.swift; sourceTree = "<group>"; };
 		0E7F679C2BCF976100F0A5E6 /* ExpenseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCardView.swift; sourceTree = "<group>"; };
+		0EAE67D82BD234CF0033DB2C /* duck.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = duck.gif; sourceTree = "<group>"; };
 		0EAF98F32B98B0DA00FBFC8E /* duck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = duck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EAF98F62B98B0DA00FBFC8E /* duckApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = duckApp.swift; sourceTree = "<group>"; };
 		0EAF98F82B98B0DA00FBFC8E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 		0EAF98F52B98B0DA00FBFC8E /* duck */ = {
 			isa = PBXGroup;
 			children = (
+				0EAE67D82BD234CF0033DB2C /* duck.gif */,
 				0EE6E8302BD15E6C00136DC9 /* Helper */,
 				0EAF99232B98C8DC00FBFC8E /* Model */,
 				0EAF99252B98C92700FBFC8E /* View */,
@@ -324,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EAF99012B98B0DE00FBFC8E /* Preview Assets.xcassets in Resources */,
+				0EAE67D92BD234CF0033DB2C /* duck.gif in Resources */,
 				0EAF98FD2B98B0DE00FBFC8E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,6 +338,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EAE67DA2BD234CF0033DB2C /* duck.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +346,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EAE67DB2BD234CF0033DB2C /* duck.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
