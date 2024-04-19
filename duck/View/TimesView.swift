@@ -40,7 +40,6 @@ struct TimesView: View
             let startingSpaces = CalendarHelper().weekDay(firstDayOfMonth)
             let prevMonth = CalendarHelper().minusMonth(dateHolder.date)
             let daysInPrevMonth = CalendarHelper().daysInMonth(prevMonth)
-            
             ForEach(0..<6)
             {
                 row in
@@ -50,9 +49,10 @@ struct TimesView: View
                     {
                         column in
                         let count = column + (row * 7)
-                        CalendarCell(count: count, startingSpaces:startingSpaces, daysInMonth: daysInMonth, daysInPrevMonth: daysInPrevMonth)
-                            .environmentObject(dateHolder)
-                        
+                        let cDate = CalendarHelper().cDate(count: count, startingSpaces: startingSpaces, firstDayOfMonth: firstDayOfMonth)
+                            CalendarCell(count: count, startingSpaces: startingSpaces, cDate: cDate, daysInMonth: daysInMonth, daysInPrevMonth: daysInPrevMonth)
+                                .environmentObject(dateHolder)
+                           
                     }
                 }
             }

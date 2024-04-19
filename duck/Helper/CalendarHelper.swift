@@ -45,4 +45,10 @@ class CalendarHelper
         return components.weekday! - 1
     }
     
+    func cDate(count: Int, startingSpaces: Int, firstDayOfMonth: Date) -> Date {
+        let dayOfMonth = count - startingSpaces
+        let cDate = Calendar.current.date(byAdding: .day, value: dayOfMonth - 1, to: firstDayOfMonth)
+        return cDate!
+    }
+    
 }

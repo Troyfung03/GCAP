@@ -202,11 +202,11 @@
 				0E2FE7C92BAAE3B100348DB5 /* AddExpenseView.swift */,
 				0E7F679C2BCF976100F0A5E6 /* ExpenseCardView.swift */,
 				0EE6E82E2BD15DA000136DC9 /* DateScrollerView.swift */,
+				0EE6E8402BD1719C00136DC9 /* NotesView.swift */,
 				0EE6E8332BD15EDC00136DC9 /* CalendarCell.swift */,
 				0EE6E8352BD15F2500136DC9 /* MonthStruct.swift */,
 				0EE6E8392BD1677700136DC9 /* GifImage.swift */,
 				0EE6E83E2BD16F8D00136DC9 /* AddNotesView.swift */,
-				0EE6E8402BD1719C00136DC9 /* NotesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

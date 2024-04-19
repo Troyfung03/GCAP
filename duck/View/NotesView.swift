@@ -1,11 +1,15 @@
 import SwiftUI
 import SwiftData
-
 struct NotesView: View {
     @Query(sort:[ SortDescriptor(\Notes.date, order: .reverse)], animation: .snappy)
-    private var notes: [Notes]
+    private var allNotes: [Notes]
+    let cDate : Date
     @State private var addNotes: Bool = false
-    
+
+    private var notes: [Notes] {
+        allNotes.filter { Calendar.current.isDate($0.date, inSameDayAs: cDate) }
+    }
+
     var body: some View {
         NavigationView {
             VStack {

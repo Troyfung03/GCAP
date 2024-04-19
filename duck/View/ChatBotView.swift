@@ -1,10 +1,3 @@
-//
-//  ChatBotView.swift
-//  duck
-//
-//  Created by troyfung on 19/3/2024.
-//
-
 import SwiftUI
 
 struct ChatBotView: View {

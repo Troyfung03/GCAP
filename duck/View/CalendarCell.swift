@@ -1,14 +1,16 @@
 import SwiftUI
+
 struct CalendarCell: View {
     @EnvironmentObject var dateHolder: DateHolder
     let count: Int
     let startingSpaces: Int
+    let cDate: Date
     let daysInMonth: Int
     let daysInPrevMonth: Int
     @State private var isShowingNotes = false
     @State private var notes = ""
     
-    var body: some View {
+     var body: some View {
         ZStack {
             Button(action: {
                 isShowingNotes.toggle()
@@ -23,7 +25,7 @@ struct CalendarCell: View {
                 .cornerRadius(8)
             }
             
-            NavigationLink(destination: NotesView(), isActive: $isShowingNotes) {
+            NavigationLink(destination: NotesView(cDate:cDate), isActive: $isShowingNotes) {
                 EmptyView()
             }
         }
