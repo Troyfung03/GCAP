@@ -1,6 +1,10 @@
 import SwiftUI
+import SwiftData
 
 struct CalendarCell: View {
+    @Query(sort:[ SortDescriptor(\Notes.date, order: .reverse)], animation: .snappy)
+    private var allNotes: [Notes]
+    
     @EnvironmentObject var dateHolder: DateHolder
     let count: Int
     let startingSpaces: Int
@@ -9,8 +13,13 @@ struct CalendarCell: View {
     let daysInPrevMonth: Int
     @State private var isShowingNotes = false
     @State private var notes = ""
+
+    var hasNotesForCDate: Bool {
+        allNotes.contains { Calendar.current.isDate($0.date, inSameDayAs: cDate) }
+    }
     
-     var body: some View {
+
+    var body: some View {
         ZStack {
             Button(action: {
                 isShowingNotes.toggle()
@@ -19,16 +28,17 @@ struct CalendarCell: View {
                     Text(monthStruct().day())
                         .foregroundColor(textColor(type: monthStruct().monthType))
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .padding()
+                        .padding(.horizontal) // Only apply horizontal padding
+                        
                 }
-                .background(notes.isEmpty ? Color.clear : Color.yellow)
-                .cornerRadius(8)
+                .background(hasNotesForCDate ? Color.yellow.opacity(0.5) : Color.clear)
             }
+            .disabled(monthStruct().monthType != .Current) // Disable the button if the month type is not Current
             
             NavigationLink(destination: NotesView(cDate:cDate), isActive: $isShowingNotes) {
                 EmptyView()
             }
-        }
+        }.cornerRadius(20)
     }
     
     func textColor(type: MonthType) -> Color {

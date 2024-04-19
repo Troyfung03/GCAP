@@ -7,7 +7,10 @@ struct AddNotesView: View {
     
     @State private var title: String = ""
     @State private var desc: String = ""
-    @State private var date: Date = .init()
+    @State private var date: Date
+        init(cDate: Date) {
+        _date = State(initialValue: cDate)
+    }
     var body: some View{
         NavigationStack{
             List{
@@ -24,7 +27,7 @@ struct AddNotesView: View {
                 }
                 
             }
-            .navigationTitle("Drop Notes")
+            .navigationTitle("Jot Notes")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading){

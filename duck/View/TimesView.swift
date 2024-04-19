@@ -10,10 +10,12 @@ struct TimesView: View
         {
             DateScrollerView()
                 .environmentObject(dateHolder)
-                .padding()
+
             dayOfWeekStack
+                .padding()
             calendarGrid
-            
+                
+ 
         }
     }
     
@@ -22,12 +24,19 @@ struct TimesView: View
         HStack(spacing: 1)
         {
             Text("Sun").dayOfWeek()
+                .bold()
             Text("Mon").dayOfWeek()
+                .bold()
             Text("Tue").dayOfWeek()
+                .bold()
             Text("Wed").dayOfWeek()
+                .bold()
             Text("Thu").dayOfWeek()
+                .bold()
             Text("Fri").dayOfWeek()
+                .bold()
             Text("Sat").dayOfWeek()
+                .bold()
         }
     }
     

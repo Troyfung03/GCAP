@@ -37,7 +37,7 @@ struct NotesView: View {
                 .padding()
             }
             .sheet(isPresented: $addNotes){
-                AddNotesView()
+                AddNotesView(cDate:cDate)
             }
         }
     }
