@@ -30,7 +30,7 @@ struct NotesView: View {
                 .overlay{
                     if notes.isEmpty{
                         ContentUnavailableView{
-                            Label("No Expenses", systemImage:"tray.fill")
+                            Label("No Current Notes", systemImage:"tray.fill")
                         }
                     }
                 }
