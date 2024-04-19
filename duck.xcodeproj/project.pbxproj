@@ -32,7 +32,6 @@
 		0EE6E8322BD15E8D00136DC9 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE6E8312BD15E8D00136DC9 /* CalendarHelper.swift */; };
 		0EE6E8342BD15EDC00136DC9 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE6E8332BD15EDC00136DC9 /* CalendarCell.swift */; };
 		0EE6E8362BD15F2500136DC9 /* MonthStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE6E8352BD15F2500136DC9 /* MonthStruct.swift */; };
-		0EE6E8382BD166FF00136DC9 /* duck.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0EE6E8372BD166FF00136DC9 /* duck.gif */; };
 		0EE6E83A2BD1677700136DC9 /* GifImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE6E8392BD1677700136DC9 /* GifImage.swift */; };
 		0EE6E83C2BD16DBA00136DC9 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE6E83B2BD16DBA00136DC9 /* Notes.swift */; };
 		0EE6E83F2BD16F8D00136DC9 /* AddNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE6E83E2BD16F8D00136DC9 /* AddNotesView.swift */; };
@@ -86,7 +85,6 @@
 		0EE6E8312BD15E8D00136DC9 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		0EE6E8332BD15EDC00136DC9 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		0EE6E8352BD15F2500136DC9 /* MonthStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthStruct.swift; sourceTree = "<group>"; };
-		0EE6E8372BD166FF00136DC9 /* duck.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = duck.gif; path = ../../../Downloads/duck.gif; sourceTree = "<group>"; };
 		0EE6E8392BD1677700136DC9 /* GifImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImage.swift; sourceTree = "<group>"; };
 		0EE6E83B2BD16DBA00136DC9 /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
 		0EE6E83E2BD16F8D00136DC9 /* AddNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNotesView.swift; sourceTree = "<group>"; };
@@ -141,7 +139,6 @@
 		0EAF98F52B98B0DA00FBFC8E /* duck */ = {
 			isa = PBXGroup;
 			children = (
-				0EE6E8372BD166FF00136DC9 /* duck.gif */,
 				0EE6E8302BD15E6C00136DC9 /* Helper */,
 				0EAF99232B98C8DC00FBFC8E /* Model */,
 				0EAF99252B98C92700FBFC8E /* View */,
@@ -327,7 +324,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EAF99012B98B0DE00FBFC8E /* Preview Assets.xcassets in Resources */,
-				0EE6E8382BD166FF00136DC9 /* duck.gif in Resources */,
 				0EAF98FD2B98B0DE00FBFC8E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
