@@ -23,7 +23,7 @@ struct ContentView: View {
                     .tag("News").tabItem {
                         Image(systemName:"newspaper")
                     }
-                ChatBotView()
+                ChatBotView(viewModel: ChatViewModel())
                     .tag("ChatBot").tabItem {
                         Image(systemName:"shared.with.you")
                     }
