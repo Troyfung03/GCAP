@@ -13,12 +13,12 @@ struct CalendarCell: View {
     let daysInPrevMonth: Int
     @State private var isShowingNotes = false
     @State private var notes = ""
-
+    
     var hasNotesForCDate: Bool {
         allNotes.contains { Calendar.current.isDate($0.date, inSameDayAs: cDate) }
     }
     
-
+    
     var body: some View {
         ZStack {
             Button(action: {
@@ -29,7 +29,7 @@ struct CalendarCell: View {
                         .foregroundColor(textColor(type: monthStruct().monthType))
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .padding(.horizontal) // Only apply horizontal padding
-                        
+                    
                 }
                 .background(hasNotesForCDate ? Color.yellow.opacity(0.5) : Color.clear)
             }

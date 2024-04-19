@@ -10,12 +10,12 @@ struct TimesView: View
         {
             DateScrollerView()
                 .environmentObject(dateHolder)
-
+            
             dayOfWeekStack
                 .padding()
             calendarGrid
-                
- 
+            
+            
         }
     }
     
@@ -59,9 +59,9 @@ struct TimesView: View
                         column in
                         let count = column + (row * 7)
                         let cDate = CalendarHelper().cDate(count: count, startingSpaces: startingSpaces, firstDayOfMonth: firstDayOfMonth)
-                            CalendarCell(count: count, startingSpaces: startingSpaces, cDate: cDate, daysInMonth: daysInMonth, daysInPrevMonth: daysInPrevMonth)
-                                .environmentObject(dateHolder)
-                           
+                        CalendarCell(count: count, startingSpaces: startingSpaces, cDate: cDate, daysInMonth: daysInMonth, daysInPrevMonth: daysInPrevMonth)
+                            .environmentObject(dateHolder)
+                        
                     }
                 }
             }

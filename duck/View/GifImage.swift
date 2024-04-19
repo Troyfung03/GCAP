@@ -1,17 +1,10 @@
-//
-//  GifImage.swift
-//  duck
-//
-//  Created by troyfung on 18/4/2024.
-//
-
 import SwiftUI
 import WebKit
 struct GifImage: UIViewRepresentable {
     private let name: String
     
     init(_ name: String){
-        self.name = name 
+        self.name = name
     }
     func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView()

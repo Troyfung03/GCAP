@@ -8,7 +8,7 @@ struct AddNotesView: View {
     @State private var title: String = ""
     @State private var desc: String = ""
     @State private var date: Date
-        init(cDate: Date) {
+    init(cDate: Date) {
         _date = State(initialValue: cDate)
     }
     var body: some View{
@@ -18,7 +18,14 @@ struct AddNotesView: View {
                     TextField("Type Something!", text: $title)
                 }
                 Section("Description"){
-                    TextField("Type Something As Well!", text: $desc)
+                    ZStack(alignment: .topLeading) {
+                        if desc.isEmpty {
+                            Text("Type Something!")
+                                .foregroundColor(.gray)
+                        }
+                        TextEditor(text: $desc)
+                    }
+                    .frame(height: 100) // Set a fixed height for the TextEditor
                 }
                 Section("Date"){
                     DatePicker("", selection: $date, displayedComponents: [.date])

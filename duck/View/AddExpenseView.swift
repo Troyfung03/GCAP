@@ -16,21 +16,16 @@ struct AddExpenseView: View {
         NavigationStack{
             List{
                 Section("Title"){
-                    TextField("Magic Keyboard", text: $title)
+                    TextField("Type Something!", text: $title)
                 }
                 Section("subtitle"){
-                    TextField("Magic Keyboard", text: $subtitle)
+                    TextField("Type Something As Well!", text: $subtitle)
                 }
                 Section("Amount"){
                     HStack(spacing: 4){
                         Text("$").fontWeight(.semibold)
                         TextField("0.0", value: $amount, formatter: formatter)
                     }
-                }
-                Section("Date"){
-                    DatePicker("", selection: $date, displayedComponents: [.date])
-                        .datePickerStyle(.graphical)
-                        .labelsHidden()
                 }
                 if !allCategories.isEmpty
                 {
@@ -51,6 +46,12 @@ struct AddExpenseView: View {
                         }
                     }
                 }
+                Section("Date"){
+                    DatePicker("", selection: $date, displayedComponents: [.date])
+                        .datePickerStyle(.graphical)
+                        .labelsHidden()
+                }
+                
             }
             .navigationTitle("Add Expense")
             .navigationBarTitleDisplayMode(.inline)
